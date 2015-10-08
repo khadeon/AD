@@ -2,42 +2,39 @@ using System;
 using Gtk;
 using MySql.Data.MySqlClient;
 using System.Collections.Generic;
-
+using System.Data;
+using PArticulo;
 public partial class MainWindow: Gtk.Window
 {	
 
-	public MySqlConnection conexion()
+	public IDbConnection conexion()
 	{
-		MySqlConnection mySqlConnection = new MySqlConnection(
-			"Database=dbprueba;Data Source=localhost;User Id=root;Password=sistemas");
-		mySqlConnection.Open ();
+		Console.WriteLine ("MainWindow ctor.");
+		IDbConnection dbConnection = App.Instance.DbConnection;
 
-		return mySqlConnection;
+		return dbConnection;
 	}
 
-	public ListStore cadena(MySqlConnection a)
+	public ListStore cadena(IDbConnection a)
 	{
-		MySqlCommand mySqlCommand = a.CreateCommand();
-		mySqlCommand.CommandText = "select * from articulo";
-		MySqlDataReader mySqlDataReader = mySqlCommand.ExecuteReader ();
+		IDbCommand dbCommand = a.CreateCommand();
+		dbCommand.CommandText = "select * from articulo";
+		IDataReader dbDataReader = dbCommand.ExecuteReader ();
 
-		//ListStore lista= new ListStore(typeof(String), typeof(String));
-
-		String[] columnames = getColumnames (mySqlDataReader);
+		String[] columnames = getColumnames (dbDataReader);
 
 		for (int i=0; i<columnames.Length; i++)
 			TreeView.AppendColumn (columnames[i], new CellRendererText(), "text", i);
-		//ListStore listastore = new ListStore (typeof(String), typeof(String));
 
-		Type[] types = getTypes (mySqlDataReader.FieldCount);
+		Type[] types = getTypes (dbDataReader.FieldCount);
 		ListStore list = new ListStore (types);
 
-		while (mySqlDataReader.Read()) {
-			string[] values = getValues (mySqlDataReader);
+		while (dbDataReader.Read()) {
+			string[] values = getValues (dbDataReader);
 			list.AppendValues (values);
 		}
 
-		mySqlDataReader.Close ();
+		dbDataReader.Close ();
 		a.Close ();
 		return list;
 	}
