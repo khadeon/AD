@@ -4,7 +4,10 @@ public partial class MainWindow
 {
 	private global::Gtk.UIManager UIManager;
 	private global::Gtk.VBox vbox1;
-	private global::Gtk.Toolbar toolbar1;
+	private global::Gtk.HBox hbox3;
+	private global::Gtk.Label etiquetaConsulta;
+	private global::Gtk.Entry entrada;
+	private global::Gtk.Button botonBuscar;
 	private global::Gtk.ScrolledWindow GtkScrolledWindow;
 	private global::Gtk.TreeView TreeView;
 
@@ -24,15 +27,58 @@ public partial class MainWindow
 		this.vbox1.Name = "vbox1";
 		this.vbox1.Spacing = 6;
 		// Container child vbox1.Gtk.Box+BoxChild
-		this.UIManager.AddUiFromString ("<ui><toolbar name='toolbar1'/></ui>");
-		this.toolbar1 = ((global::Gtk.Toolbar)(this.UIManager.GetWidget ("/toolbar1")));
-		this.toolbar1.Name = "toolbar1";
-		this.toolbar1.ShowArrow = false;
-		this.vbox1.Add (this.toolbar1);
-		global::Gtk.Box.BoxChild w2 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.toolbar1]));
+		this.hbox3 = new global::Gtk.HBox ();
+		this.hbox3.Name = "hbox3";
+		this.hbox3.Spacing = 6;
+		// Container child hbox3.Gtk.Box+BoxChild
+		this.etiquetaConsulta = new global::Gtk.Label ();
+		this.etiquetaConsulta.Name = "etiquetaConsulta";
+		this.etiquetaConsulta.LabelProp = global::Mono.Unix.Catalog.GetString ("Introduzca consulta");
+		this.hbox3.Add (this.etiquetaConsulta);
+		global::Gtk.Box.BoxChild w2 = ((global::Gtk.Box.BoxChild)(this.hbox3 [this.etiquetaConsulta]));
 		w2.Position = 0;
 		w2.Expand = false;
 		w2.Fill = false;
+		// Container child hbox3.Gtk.Box+BoxChild
+		this.entrada = new global::Gtk.Entry ();
+		this.entrada.CanFocus = true;
+		this.entrada.Name = "entrada";
+		this.entrada.IsEditable = true;
+		this.entrada.InvisibleChar = '•';
+		this.hbox3.Add (this.entrada);
+		global::Gtk.Box.BoxChild w3 = ((global::Gtk.Box.BoxChild)(this.hbox3 [this.entrada]));
+		w3.Position = 1;
+		// Container child hbox3.Gtk.Box+BoxChild
+		this.botonBuscar = new global::Gtk.Button ();
+		this.botonBuscar.CanFocus = true;
+		this.botonBuscar.Name = "botonBuscar";
+		this.botonBuscar.UseUnderline = true;
+		// Container child botonBuscar.Gtk.Container+ContainerChild
+		global::Gtk.Alignment w4 = new global::Gtk.Alignment (0.5F, 0.5F, 0F, 0F);
+		// Container child GtkAlignment.Gtk.Container+ContainerChild
+		global::Gtk.HBox w5 = new global::Gtk.HBox ();
+		w5.Spacing = 2;
+		// Container child GtkHBox.Gtk.Container+ContainerChild
+		global::Gtk.Image w6 = new global::Gtk.Image ();
+		w6.Pixbuf = global::Stetic.IconLoader.LoadIcon (this, "gtk-find", global::Gtk.IconSize.Menu);
+		w5.Add (w6);
+		// Container child GtkHBox.Gtk.Container+ContainerChild
+		global::Gtk.Label w8 = new global::Gtk.Label ();
+		w8.LabelProp = global::Mono.Unix.Catalog.GetString ("_Buscar");
+		w8.UseUnderline = true;
+		w5.Add (w8);
+		w4.Add (w5);
+		this.botonBuscar.Add (w4);
+		this.hbox3.Add (this.botonBuscar);
+		global::Gtk.Box.BoxChild w12 = ((global::Gtk.Box.BoxChild)(this.hbox3 [this.botonBuscar]));
+		w12.Position = 2;
+		w12.Expand = false;
+		w12.Fill = false;
+		this.vbox1.Add (this.hbox3);
+		global::Gtk.Box.BoxChild w13 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.hbox3]));
+		w13.Position = 0;
+		w13.Expand = false;
+		w13.Fill = false;
 		// Container child vbox1.Gtk.Box+BoxChild
 		this.GtkScrolledWindow = new global::Gtk.ScrolledWindow ();
 		this.GtkScrolledWindow.Name = "GtkScrolledWindow";
@@ -43,8 +89,8 @@ public partial class MainWindow
 		this.TreeView.Name = "TreeView";
 		this.GtkScrolledWindow.Add (this.TreeView);
 		this.vbox1.Add (this.GtkScrolledWindow);
-		global::Gtk.Box.BoxChild w4 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.GtkScrolledWindow]));
-		w4.Position = 1;
+		global::Gtk.Box.BoxChild w15 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.GtkScrolledWindow]));
+		w15.Position = 1;
 		this.Add (this.vbox1);
 		if ((this.Child != null)) {
 			this.Child.ShowAll ();
