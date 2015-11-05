@@ -3,11 +3,14 @@
 public partial class MainWindow
 {
 	private global::Gtk.UIManager UIManager;
+	private global::Gtk.Action newAction;
 	private global::Gtk.VBox vbox1;
 	private global::Gtk.HBox hbox3;
 	private global::Gtk.Label etiquetaConsulta;
 	private global::Gtk.Entry entrada;
 	private global::Gtk.Button botonBuscar;
+	private global::Gtk.VBox vbox3;
+	private global::Gtk.Toolbar toolbar2;
 	private global::Gtk.ScrolledWindow GtkScrolledWindow;
 	private global::Gtk.TreeView TreeView;
 
@@ -17,6 +20,8 @@ public partial class MainWindow
 		// Widget MainWindow
 		this.UIManager = new global::Gtk.UIManager ();
 		global::Gtk.ActionGroup w1 = new global::Gtk.ActionGroup ("Default");
+		this.newAction = new global::Gtk.Action ("newAction", null, null, "gtk-new");
+		w1.Add (this.newAction, null);
 		this.UIManager.InsertActionGroup (w1, 0);
 		this.AddAccelGroup (this.UIManager.AccelGroup);
 		this.Name = "MainWindow";
@@ -80,6 +85,25 @@ public partial class MainWindow
 		w13.Expand = false;
 		w13.Fill = false;
 		// Container child vbox1.Gtk.Box+BoxChild
+		this.vbox3 = new global::Gtk.VBox ();
+		this.vbox3.Name = "vbox3";
+		this.vbox3.Spacing = 6;
+		// Container child vbox3.Gtk.Box+BoxChild
+		this.UIManager.AddUiFromString ("<ui><toolbar name='toolbar2'><toolitem name='newAction' action='newAction'/></toolbar></ui>");
+		this.toolbar2 = ((global::Gtk.Toolbar)(this.UIManager.GetWidget ("/toolbar2")));
+		this.toolbar2.Name = "toolbar2";
+		this.toolbar2.ShowArrow = false;
+		this.vbox3.Add (this.toolbar2);
+		global::Gtk.Box.BoxChild w14 = ((global::Gtk.Box.BoxChild)(this.vbox3 [this.toolbar2]));
+		w14.Position = 0;
+		w14.Expand = false;
+		w14.Fill = false;
+		this.vbox1.Add (this.vbox3);
+		global::Gtk.Box.BoxChild w15 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.vbox3]));
+		w15.Position = 1;
+		w15.Expand = false;
+		w15.Fill = false;
+		// Container child vbox1.Gtk.Box+BoxChild
 		this.GtkScrolledWindow = new global::Gtk.ScrolledWindow ();
 		this.GtkScrolledWindow.Name = "GtkScrolledWindow";
 		this.GtkScrolledWindow.ShadowType = ((global::Gtk.ShadowType)(1));
@@ -89,8 +113,8 @@ public partial class MainWindow
 		this.TreeView.Name = "TreeView";
 		this.GtkScrolledWindow.Add (this.TreeView);
 		this.vbox1.Add (this.GtkScrolledWindow);
-		global::Gtk.Box.BoxChild w15 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.GtkScrolledWindow]));
-		w15.Position = 1;
+		global::Gtk.Box.BoxChild w17 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.GtkScrolledWindow]));
+		w17.Position = 2;
 		this.Add (this.vbox1);
 		if ((this.Child != null)) {
 			this.Child.ShowAll ();
@@ -99,5 +123,6 @@ public partial class MainWindow
 		this.DefaultHeight = 346;
 		this.Show ();
 		this.DeleteEvent += new global::Gtk.DeleteEventHandler (this.OnDeleteEvent);
+		this.newAction.Activated += new global::System.EventHandler (this.OnNewActionActivated);
 	}
 }
