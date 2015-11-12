@@ -7,6 +7,7 @@ namespace SerpisAD
 	{
 		public static void Fill(TreeView treeView, QueryResult queryResult)
 		{
+			removeAllColum (treeView);
 			String[] columnames = queryResult.ColumNames;
 			CellRendererText cellRenderText = new CellRendererText ();
 
@@ -24,6 +25,14 @@ namespace SerpisAD
 				list.AppendValues (row);
 			treeView.Model = list;
 		}
+	
+		private static void removeAllColum(TreeView treeView)
+		{
+			TreeViewColumn[] treeColum = treeView.Columns;
+			foreach (TreeViewColumn treeColums in treeColum) {
+				treeView.RemoveColumn (treeColums);
+			}
+
+		}
 	}
 }
-

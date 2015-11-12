@@ -23,6 +23,10 @@ public partial class MainWindow: Gtk.Window
 		Console.WriteLine ("MainWindow ctor.");
 		QueryResult queryResult = PersisterHelper.Get("select * from articulo");
 		TreeViewHelper.Fill (TreeView, queryResult);
+
+		refreshAction.Activated += delegate{
+			fill();
+		};
 	}
 
 	protected void OnDeleteEvent (object sender, DeleteEventArgs a)
@@ -34,6 +38,14 @@ public partial class MainWindow: Gtk.Window
 	{
 		new ArticuloView ();
 	}
+	
+
+	protected void fill()
+	{
+		QueryResult queryResult = PersisterHelper.Get("select * from articulo");
+		TreeViewHelper.Fill (TreeView, queryResult);
+	}
+
 
 	
 }

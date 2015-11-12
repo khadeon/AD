@@ -9,13 +9,23 @@
     <widget-library name="../bin/Debug/PArticulo.exe" internal="true" />
     <widget-library name="../../../../PSerpisAd/PSerpisAd/bin/Debug/PSerpisAd.dll" />
   </import>
-  <widget class="Gtk.Window" id="MainWindow" design-size="611 346">
+  <widget class="Gtk.Window" id="MainWindow" design-size="610 346">
     <action-group name="Default">
       <action id="newAction">
         <property name="Type">Action</property>
         <property name="Label" translatable="yes" />
         <property name="StockId">gtk-new</property>
         <signal name="Activated" handler="OnNewActionActivated" />
+      </action>
+      <action id="refreshAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes" />
+        <property name="StockId">gtk-refresh</property>
+      </action>
+      <action id="undeleteAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes" />
+        <property name="StockId">gtk-undelete</property>
       </action>
     </action-group>
     <property name="MemberName" />
@@ -27,56 +37,7 @@
         <property name="MemberName" />
         <property name="Spacing">6</property>
         <child>
-          <widget class="Gtk.HBox" id="hbox3">
-            <property name="MemberName" />
-            <property name="Spacing">6</property>
-            <child>
-              <widget class="Gtk.Label" id="etiquetaConsulta">
-                <property name="MemberName" />
-                <property name="LabelProp" translatable="yes">Introduzca consulta</property>
-              </widget>
-              <packing>
-                <property name="Position">0</property>
-                <property name="AutoSize">True</property>
-                <property name="Expand">False</property>
-                <property name="Fill">False</property>
-              </packing>
-            </child>
-            <child>
-              <widget class="Gtk.Entry" id="entrada">
-                <property name="MemberName" />
-                <property name="CanFocus">True</property>
-                <property name="IsEditable">True</property>
-                <property name="InvisibleChar">•</property>
-              </widget>
-              <packing>
-                <property name="Position">1</property>
-                <property name="AutoSize">True</property>
-              </packing>
-            </child>
-            <child>
-              <widget class="Gtk.Button" id="botonBuscar">
-                <property name="MemberName" />
-                <property name="CanFocus">True</property>
-                <property name="Type">TextAndIcon</property>
-                <property name="Icon">stock:gtk-find Menu</property>
-                <property name="Label" translatable="yes">_Buscar</property>
-                <property name="UseUnderline">True</property>
-              </widget>
-              <packing>
-                <property name="Position">2</property>
-                <property name="AutoSize">True</property>
-                <property name="Expand">False</property>
-                <property name="Fill">False</property>
-              </packing>
-            </child>
-          </widget>
-          <packing>
-            <property name="Position">0</property>
-            <property name="AutoSize">True</property>
-            <property name="Expand">False</property>
-            <property name="Fill">False</property>
-          </packing>
+          <placeholder />
         </child>
         <child>
           <widget class="Gtk.VBox" id="vbox3">
@@ -88,6 +49,8 @@
                 <property name="ShowArrow">False</property>
                 <node name="toolbar2" type="Toolbar">
                   <node type="Toolitem" action="newAction" />
+                  <node type="Toolitem" action="refreshAction" />
+                  <node type="Toolitem" action="undeleteAction" />
                 </node>
               </widget>
               <packing>

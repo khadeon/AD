@@ -16,8 +16,7 @@ namespace PArticulo
 			combobox1.SetCellDataFunc (cellRendererText,
 						    delegate(CellLayout cell_layout, CellRenderer cell, TreeModel tree_model, TreeIter iter) {
 				IList row = (IList)tree_model.GetValue (iter, 0);
-				cellRendererText.Text =
-					String.Format ("{0} - {1}", row [1].ToString (), row [1]);
+				cellRendererText.Text = row[1].ToString();
 					});
 			ListStore listStore = new ListStore (typeof(IList));
 			IList first=new object[]{null,"<sin asignar>"};
