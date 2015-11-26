@@ -8,7 +8,7 @@ namespace PArticulo
 {
 	public class ComboBoxHelper
 	{
-		public static void Fill(ComboBox combobox1, QueryResult queryresult)
+		public static void Fill(ComboBox combobox1, QueryResult queryresult, object id)
 		{
 			CellRendererText cellRendererText = new CellRendererText ();
 			combobox1.PackStart (cellRendererText, false);
@@ -20,13 +20,15 @@ namespace PArticulo
 					});
 			ListStore listStore = new ListStore (typeof(IList));
 			IList first=new object[]{null,"<sin asignar>"};
-			TreeIter treeIterFirst=listStore.AppendValues (first);
-			foreach (IList row in queryresult.Rows)
-				listStore.AppendValues (row);
-			
+			TreeIter treeiterId=listStore.AppendValues (first);
+			foreach (IList row in queryresult.Rows) {
+				TreeIter treeiter=listStore.AppendValues (row);
+				if (row[0].Equals(id))
+					treeiterId = treeiter;
+			}
 			combobox1.Model = listStore;
 			//combobox1.Active = 0;
-			combobox1.SetActiveIter (treeIterFirst);
+			combobox1.SetActiveIter (treeiterId);
 		}
 
 		public static object GetId(ComboBox comboBox)

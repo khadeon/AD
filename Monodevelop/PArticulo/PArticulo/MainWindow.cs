@@ -6,6 +6,7 @@ using System.Data;
 using SerpisAD;
 using System.Collections;
 using PArticulo;
+using SerpisAd;
 
 public partial class MainWindow: Gtk.Window
 {	
@@ -20,14 +21,44 @@ public partial class MainWindow: Gtk.Window
 	public MainWindow (): base (Gtk.WindowType.Toplevel)
 	{
 		Build ();
+		Title = "Artículo";
 		Console.WriteLine ("MainWindow ctor.");
-		QueryResult queryResult = PersisterHelper.Get("select * from articulo");
-		TreeViewHelper.Fill (TreeView, queryResult);
+		fill ();
 
 		refreshAction.Activated += delegate{
 			fill();
 		};
+
+		deleteAction.Activated += delegate{
+			object id=TreeViewHelper.GetId(TreeView);
+			Console.WriteLine("Click en deleteAction id={0}", id);
+			delete(id);
+
+		};
+
+		editAction.Activated += delegate {
+			object id=TreeViewHelper.GetId(TreeView);
+			Console.WriteLine("Edicion de la tabla seleccionada");
+			new ArticuloView(id);
+		};
+
+		TreeView.Selection.Changed += delegate {
+			Console.WriteLine("ha ocurrido treeView.Selection.Changed");
+			deleteAction.Sensitive=TreeViewHelper.GetId(TreeView)!=null;
+		};
+		deleteAction.Sensitive = false;
 	}
+
+	private void delete(object id){
+		if (!WindowHelper.confirmDelete (this)) 
+			return;
+		IDbCommand dbCommand = App.Instance.DbConnection.CreateCommand ();
+		dbCommand.CommandText = "delete from articulo where id = @id";
+		DbCommandHelper.AddParameter (dbCommand, "id", id);
+		dbCommand.ExecuteNonQuery ();
+
+	}
+
 
 	protected void OnDeleteEvent (object sender, DeleteEventArgs a)
 	{
@@ -45,7 +76,6 @@ public partial class MainWindow: Gtk.Window
 		QueryResult queryResult = PersisterHelper.Get("select * from articulo");
 		TreeViewHelper.Fill (TreeView, queryResult);
 	}
-
 
 	
 }

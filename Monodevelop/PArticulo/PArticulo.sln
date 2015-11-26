@@ -3,18 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PArticulo", "PArticulo\PArticulo.csproj", "{60A98107-91AF-4DD7-8C82-DE09AC503076}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PSerpisAd", "..\..\PSerpisAd\PSerpisAd\PSerpisAd.csproj", "{2D8394BF-FFD3-4B6B-9710-9E7CCDBE5588}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{2D8394BF-FFD3-4B6B-9710-9E7CCDBE5588}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{2D8394BF-FFD3-4B6B-9710-9E7CCDBE5588}.Debug|x86.Build.0 = Debug|Any CPU
-		{2D8394BF-FFD3-4B6B-9710-9E7CCDBE5588}.Release|x86.ActiveCfg = Release|Any CPU
-		{2D8394BF-FFD3-4B6B-9710-9E7CCDBE5588}.Release|x86.Build.0 = Release|Any CPU
 		{60A98107-91AF-4DD7-8C82-DE09AC503076}.Debug|x86.ActiveCfg = Debug|x86
 		{60A98107-91AF-4DD7-8C82-DE09AC503076}.Debug|x86.Build.0 = Debug|x86
 		{60A98107-91AF-4DD7-8C82-DE09AC503076}.Release|x86.ActiveCfg = Release|x86

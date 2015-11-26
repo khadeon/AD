@@ -34,5 +34,22 @@ namespace SerpisAD
 			}
 
 		}
+
+		public static object GetId(TreeView treeView)
+		{
+			TreeIter treeIter;
+			if (!treeView.Selection.GetSelected (out treeIter))
+				return null;
+			IList row=(IList)treeView.Model.GetValue(treeIter, 0);
+			return row [0];
+		}
+
+		public static bool isSelected(TreeView treeView)
+		{
+			TreeIter treeIter;
+			return treeView.Selection.GetSelected (out treeIter);
+			/* o bien
+		 * treeView.Selection.CountSelectedRows () != 0; */
+		}
 	}
 }

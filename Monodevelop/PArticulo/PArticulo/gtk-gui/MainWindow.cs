@@ -5,7 +5,8 @@ public partial class MainWindow
 	private global::Gtk.UIManager UIManager;
 	private global::Gtk.Action newAction;
 	private global::Gtk.Action refreshAction;
-	private global::Gtk.Action undeleteAction;
+	private global::Gtk.Action deleteAction;
+	private global::Gtk.Action editAction;
 	private global::Gtk.VBox vbox1;
 	private global::Gtk.VBox vbox3;
 	private global::Gtk.Toolbar toolbar2;
@@ -22,8 +23,10 @@ public partial class MainWindow
 		w1.Add (this.newAction, null);
 		this.refreshAction = new global::Gtk.Action ("refreshAction", null, null, "gtk-refresh");
 		w1.Add (this.refreshAction, null);
-		this.undeleteAction = new global::Gtk.Action ("undeleteAction", null, null, "gtk-undelete");
-		w1.Add (this.undeleteAction, null);
+		this.deleteAction = new global::Gtk.Action ("deleteAction", null, null, "gtk-delete");
+		w1.Add (this.deleteAction, null);
+		this.editAction = new global::Gtk.Action ("editAction", null, null, "gtk-edit");
+		w1.Add (this.editAction, null);
 		this.UIManager.InsertActionGroup (w1, 0);
 		this.AddAccelGroup (this.UIManager.AccelGroup);
 		this.Name = "MainWindow";
@@ -38,7 +41,7 @@ public partial class MainWindow
 		this.vbox3.Name = "vbox3";
 		this.vbox3.Spacing = 6;
 		// Container child vbox3.Gtk.Box+BoxChild
-		this.UIManager.AddUiFromString ("<ui><toolbar name='toolbar2'><toolitem name='newAction' action='newAction'/><toolitem name='refreshAction' action='refreshAction'/><toolitem name='undeleteAction' action='undeleteAction'/></toolbar></ui>");
+		this.UIManager.AddUiFromString ("<ui><toolbar name='toolbar2'><toolitem name='newAction' action='newAction'/><toolitem name='refreshAction' action='refreshAction'/><toolitem name='deleteAction' action='deleteAction'/><toolitem name='editAction' action='editAction'/></toolbar></ui>");
 		this.toolbar2 = ((global::Gtk.Toolbar)(this.UIManager.GetWidget ("/toolbar2")));
 		this.toolbar2.Name = "toolbar2";
 		this.toolbar2.ShowArrow = false;

@@ -6,8 +6,8 @@
   </configuration>
   <import>
     <widget-library name="glade-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
-    <widget-library name="../bin/Debug/PArticulo.exe" internal="true" />
     <widget-library name="../../../../PSerpisAd/PSerpisAd/bin/Debug/PSerpisAd.dll" />
+    <widget-library name="../bin/Debug/PArticulo.exe" internal="true" />
   </import>
   <widget class="Gtk.Window" id="MainWindow" design-size="610 346">
     <action-group name="Default">
@@ -22,10 +22,15 @@
         <property name="Label" translatable="yes" />
         <property name="StockId">gtk-refresh</property>
       </action>
-      <action id="undeleteAction">
+      <action id="deleteAction">
         <property name="Type">Action</property>
         <property name="Label" translatable="yes" />
-        <property name="StockId">gtk-undelete</property>
+        <property name="StockId">gtk-delete</property>
+      </action>
+      <action id="editAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes" />
+        <property name="StockId">gtk-edit</property>
       </action>
     </action-group>
     <property name="MemberName" />
@@ -50,7 +55,8 @@
                 <node name="toolbar2" type="Toolbar">
                   <node type="Toolitem" action="newAction" />
                   <node type="Toolitem" action="refreshAction" />
-                  <node type="Toolitem" action="undeleteAction" />
+                  <node type="Toolitem" action="deleteAction" />
+                  <node type="Toolitem" action="editAction" />
                 </node>
               </widget>
               <packing>
