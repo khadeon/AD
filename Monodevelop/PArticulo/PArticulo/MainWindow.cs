@@ -11,22 +11,17 @@ using SerpisAd;
 public partial class MainWindow: Gtk.Window
 {	
 
-	public IDbConnection conexion()
-	{
-		IDbConnection dbConnection = App.Instance.DbConnection;
-
-		return dbConnection;
-	}
+	public QueryResult QueryResult;
 	
 	public MainWindow (): base (Gtk.WindowType.Toplevel)
 	{
 		Build ();
-		Title = "Artículo";
-		Console.WriteLine ("MainWindow ctor.");
-		fill ();
+	
+		QueryResult queryresult=PersisterHelper.Get("select * from articulo");
+		TreeViewHelper.Fill (TreeView, queryresult);
 
 		refreshAction.Activated += delegate{
-			fill();
+			fillTreeView();
 		};
 
 		deleteAction.Activated += delegate{
@@ -41,6 +36,7 @@ public partial class MainWindow: Gtk.Window
 			Console.WriteLine("Edicion de la tabla seleccionada");
 			new ArticuloView(id);
 		};
+
 
 		TreeView.Selection.Changed += delegate {
 			Console.WriteLine("ha ocurrido treeView.Selection.Changed");
@@ -71,7 +67,7 @@ public partial class MainWindow: Gtk.Window
 	}
 	
 
-	protected void fill()
+	protected void fillTreeView()
 	{
 		QueryResult queryResult = PersisterHelper.Get("select * from articulo");
 		TreeViewHelper.Fill (TreeView, queryResult);

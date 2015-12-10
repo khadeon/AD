@@ -94,7 +94,7 @@
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Window" id="PArticulo.ArticuloView" design-size="511 201">
+  <widget class="Gtk.Window" id="PArticulo.ArticuloView" design-size="442 170">
     <action-group name="Default">
       <action id="saveAction">
         <property name="Type">Action</property>
@@ -141,25 +141,6 @@
               <placeholder />
             </child>
             <child>
-              <widget class="Gtk.Label" id="categoria">
-                <property name="MemberName" />
-                <property name="LabelProp" translatable="yes">Categoría</property>
-              </widget>
-              <packing>
-                <property name="TopAttach">1</property>
-                <property name="BottomAttach">2</property>
-                <property name="AutoSize">True</property>
-                <property name="XOptions">Fill</property>
-                <property name="YOptions">Fill</property>
-                <property name="XExpand">False</property>
-                <property name="XFill">True</property>
-                <property name="XShrink">False</property>
-                <property name="YExpand">False</property>
-                <property name="YFill">True</property>
-                <property name="YShrink">False</property>
-              </packing>
-            </child>
-            <child>
               <widget class="Gtk.ComboBox" id="combobox1">
                 <property name="MemberName" />
                 <property name="IsTextCombo">True</property>
@@ -203,7 +184,7 @@
               </packing>
             </child>
             <child>
-              <widget class="Gtk.Label" id="nombre">
+              <widget class="Gtk.Label" id="label1">
                 <property name="MemberName" />
                 <property name="LabelProp" translatable="yes">Nombre</property>
               </widget>
@@ -220,7 +201,26 @@
               </packing>
             </child>
             <child>
-              <widget class="Gtk.Label" id="precio">
+              <widget class="Gtk.Label" id="label2">
+                <property name="MemberName" />
+                <property name="LabelProp" translatable="yes">Categoría</property>
+              </widget>
+              <packing>
+                <property name="TopAttach">1</property>
+                <property name="BottomAttach">2</property>
+                <property name="AutoSize">True</property>
+                <property name="XOptions">Fill</property>
+                <property name="YOptions">Fill</property>
+                <property name="XExpand">False</property>
+                <property name="XFill">True</property>
+                <property name="XShrink">False</property>
+                <property name="YExpand">False</property>
+                <property name="YFill">True</property>
+                <property name="YShrink">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="Gtk.Label" id="label3">
                 <property name="MemberName" />
                 <property name="LabelProp" translatable="yes">Precio</property>
               </widget>

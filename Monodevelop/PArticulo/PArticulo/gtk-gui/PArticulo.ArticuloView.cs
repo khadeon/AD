@@ -9,11 +9,11 @@ namespace PArticulo
 		private global::Gtk.VBox vbox1;
 		private global::Gtk.Toolbar toolbar1;
 		private global::Gtk.Table table1;
-		private global::Gtk.Label categoria;
 		private global::Gtk.ComboBox combobox1;
 		private global::Gtk.Entry entry1;
-		private global::Gtk.Label nombre;
-		private global::Gtk.Label precio;
+		private global::Gtk.Label label1;
+		private global::Gtk.Label label2;
+		private global::Gtk.Label label3;
 		private global::Gtk.SpinButton spinbutton1;
 
 		protected virtual void Build ()
@@ -49,26 +49,16 @@ namespace PArticulo
 			this.table1.RowSpacing = ((uint)(6));
 			this.table1.ColumnSpacing = ((uint)(6));
 			// Container child table1.Gtk.Table+TableChild
-			this.categoria = new global::Gtk.Label ();
-			this.categoria.Name = "categoria";
-			this.categoria.LabelProp = global::Mono.Unix.Catalog.GetString ("Categoría");
-			this.table1.Add (this.categoria);
-			global::Gtk.Table.TableChild w3 = ((global::Gtk.Table.TableChild)(this.table1 [this.categoria]));
-			w3.TopAttach = ((uint)(1));
-			w3.BottomAttach = ((uint)(2));
-			w3.XOptions = ((global::Gtk.AttachOptions)(4));
-			w3.YOptions = ((global::Gtk.AttachOptions)(4));
-			// Container child table1.Gtk.Table+TableChild
 			this.combobox1 = global::Gtk.ComboBox.NewText ();
 			this.combobox1.Name = "combobox1";
 			this.table1.Add (this.combobox1);
-			global::Gtk.Table.TableChild w4 = ((global::Gtk.Table.TableChild)(this.table1 [this.combobox1]));
-			w4.TopAttach = ((uint)(1));
-			w4.BottomAttach = ((uint)(2));
-			w4.LeftAttach = ((uint)(1));
-			w4.RightAttach = ((uint)(2));
-			w4.XOptions = ((global::Gtk.AttachOptions)(4));
-			w4.YOptions = ((global::Gtk.AttachOptions)(4));
+			global::Gtk.Table.TableChild w3 = ((global::Gtk.Table.TableChild)(this.table1 [this.combobox1]));
+			w3.TopAttach = ((uint)(1));
+			w3.BottomAttach = ((uint)(2));
+			w3.LeftAttach = ((uint)(1));
+			w3.RightAttach = ((uint)(2));
+			w3.XOptions = ((global::Gtk.AttachOptions)(4));
+			w3.YOptions = ((global::Gtk.AttachOptions)(4));
 			// Container child table1.Gtk.Table+TableChild
 			this.entry1 = new global::Gtk.Entry ();
 			this.entry1.CanFocus = true;
@@ -76,25 +66,35 @@ namespace PArticulo
 			this.entry1.IsEditable = true;
 			this.entry1.InvisibleChar = '•';
 			this.table1.Add (this.entry1);
-			global::Gtk.Table.TableChild w5 = ((global::Gtk.Table.TableChild)(this.table1 [this.entry1]));
-			w5.LeftAttach = ((uint)(1));
-			w5.RightAttach = ((uint)(2));
+			global::Gtk.Table.TableChild w4 = ((global::Gtk.Table.TableChild)(this.table1 [this.entry1]));
+			w4.LeftAttach = ((uint)(1));
+			w4.RightAttach = ((uint)(2));
+			w4.XOptions = ((global::Gtk.AttachOptions)(4));
+			w4.YOptions = ((global::Gtk.AttachOptions)(4));
+			// Container child table1.Gtk.Table+TableChild
+			this.label1 = new global::Gtk.Label ();
+			this.label1.Name = "label1";
+			this.label1.LabelProp = global::Mono.Unix.Catalog.GetString ("Nombre");
+			this.table1.Add (this.label1);
+			global::Gtk.Table.TableChild w5 = ((global::Gtk.Table.TableChild)(this.table1 [this.label1]));
 			w5.XOptions = ((global::Gtk.AttachOptions)(4));
 			w5.YOptions = ((global::Gtk.AttachOptions)(4));
 			// Container child table1.Gtk.Table+TableChild
-			this.nombre = new global::Gtk.Label ();
-			this.nombre.Name = "nombre";
-			this.nombre.LabelProp = global::Mono.Unix.Catalog.GetString ("Nombre");
-			this.table1.Add (this.nombre);
-			global::Gtk.Table.TableChild w6 = ((global::Gtk.Table.TableChild)(this.table1 [this.nombre]));
+			this.label2 = new global::Gtk.Label ();
+			this.label2.Name = "label2";
+			this.label2.LabelProp = global::Mono.Unix.Catalog.GetString ("Categoría");
+			this.table1.Add (this.label2);
+			global::Gtk.Table.TableChild w6 = ((global::Gtk.Table.TableChild)(this.table1 [this.label2]));
+			w6.TopAttach = ((uint)(1));
+			w6.BottomAttach = ((uint)(2));
 			w6.XOptions = ((global::Gtk.AttachOptions)(4));
 			w6.YOptions = ((global::Gtk.AttachOptions)(4));
 			// Container child table1.Gtk.Table+TableChild
-			this.precio = new global::Gtk.Label ();
-			this.precio.Name = "precio";
-			this.precio.LabelProp = global::Mono.Unix.Catalog.GetString ("Precio");
-			this.table1.Add (this.precio);
-			global::Gtk.Table.TableChild w7 = ((global::Gtk.Table.TableChild)(this.table1 [this.precio]));
+			this.label3 = new global::Gtk.Label ();
+			this.label3.Name = "label3";
+			this.label3.LabelProp = global::Mono.Unix.Catalog.GetString ("Precio");
+			this.table1.Add (this.label3);
+			global::Gtk.Table.TableChild w7 = ((global::Gtk.Table.TableChild)(this.table1 [this.label3]));
 			w7.TopAttach = ((uint)(2));
 			w7.BottomAttach = ((uint)(3));
 			w7.XOptions = ((global::Gtk.AttachOptions)(4));
@@ -124,8 +124,8 @@ namespace PArticulo
 			if ((this.Child != null)) {
 				this.Child.ShowAll ();
 			}
-			this.DefaultWidth = 511;
-			this.DefaultHeight = 201;
+			this.DefaultWidth = 442;
+			this.DefaultHeight = 170;
 			this.Show ();
 		}
 	}
