@@ -3,8 +3,6 @@ import java.math.BigDecimal;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -12,7 +10,7 @@ import org.hibernate.annotations.GenericGenerator;
 public class Articulo {
 	private Long id;
 	private String nombre;
-	private Categoria categoria;
+	private Long categoria;
 	private BigDecimal precio;
 	
 	@Id
@@ -30,12 +28,10 @@ public class Articulo {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	@ManyToOne
-	@JoinColumn(name="categoria")
-	public Categoria getCategoria() {
+	public Long getCategoria() {
 		return categoria;
 	}
-	public void setCategoria(Categoria categoria) {
+	public void setCategoria(Long categoria) {
 		this.categoria = categoria;
 	}
 	public BigDecimal getPrecio() {
@@ -44,4 +40,5 @@ public class Articulo {
 	public void setPrecio(BigDecimal precio) {
 		this.precio = precio;
 	}
+
 }

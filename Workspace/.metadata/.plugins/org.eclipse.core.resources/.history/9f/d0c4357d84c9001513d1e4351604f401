@@ -34,16 +34,9 @@ public class PruebaArticulo {
 		System.out.printf("%5s %-30s %5s %10s\n", 
 				arti.getId(), 
 				arti.getNombre(), 
-				format(arti.getCategoria()), 
+				arti.getCategoria(), 
 				arti.getPrecio()
 		);
-	}
-	
-	private static String format(Categoria categoria)
-	{
-		if(categoria==null)
-			return null;
-		return String.format("%4s %-20s", categoria.getId(), categoria.getNombre());
 	}
 	
 	private static void query()

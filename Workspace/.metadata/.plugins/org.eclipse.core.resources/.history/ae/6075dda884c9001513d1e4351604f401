@@ -3,7 +3,6 @@ import java.math.BigDecimal;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import org.hibernate.annotations.GenericGenerator;
@@ -31,7 +30,6 @@ public class Articulo {
 		this.nombre = nombre;
 	}
 	@ManyToOne
-	@JoinColumn(name="categoria")
 	public Categoria getCategoria() {
 		return categoria;
 	}
